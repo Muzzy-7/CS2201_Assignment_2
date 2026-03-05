@@ -1,10 +1,10 @@
-1. Turing Test Implementation Architecture
+# I. Turing Test Implementation Architecture
 
 The Turing Test checks if a machine can talk like a human.
 
 Architecture Components
 
-1. User Interface
+## 1. User Interface
 
 It's a chat interface where a human judge talks to two people:
 * A human
@@ -12,7 +12,7 @@ It's a chat interface where a human judge talks to two people:
 
 The judge doesn't know who is who.
 
-2. Conversation Manager
+## 2. Conversation Manager
 
 It helps messages go between:
 
@@ -20,7 +20,7 @@ It helps messages go between:
 * The AI agent
 * The human
 
-3. AI Response Generator
+## 3. AI Response Generator
 
 The AI system answers the judges questions using:
 
@@ -28,25 +28,17 @@ The AI system answers the judges questions using:
 * A knowledge base
 * A dialogue model
 
-4. Human Participant Module
-
+## 4. Human Participant Module
 Another human answers the same questions on their own.
 
-5. Evaluation Module
+## 5. Evaluation Module
 After talking for a bit the judge decides who is human.
 If the judge can't tell the AI from a human the system passes the Turing Test.
 Turing Test System Architecture
 
-        Judge
-          |
-   ----------------
-   |              |
-AI Agent      Human Agent
-   |
-NLP + Knowledge Base
+<img width="308" height="186" alt="image" src="https://github.com/user-attachments/assets/21b9eba0-d17a-4874-8c29-1d536bb7d72f" />
 
-2. CAPTCHA Implementation Architecture
-
+# II. CAPTCHA Implementation Architecture
 CAPTCHA systems help tell humans and bots
 For my idea from assignment 1, it is a Common-Sense CAPTCHA that needs real-world knowledge.
 
@@ -54,27 +46,21 @@ Example question:
 How do you make tea?
 * Boil water
 * Pour into cup
-* Add tea bag
+* Add a tea bag
 * Drink
 
-A human knows the order.
+A human knows the order, but the Bots struggle because they don't understand cause and effect.
 
-Bots struggle because they don't understand cause and effect.
+## CAPTCHA System Components
 
-CAPTCHA System Components
-
-1. Challenge Generator
-
+## 1. Challenge Generator
 It creates CAPTCHA challenges.
-
 Types:
-
 * Image recognition
 * Text distortion
 * Real-world sequence problems (my idea)
 
 Example challenge:
-
 Put these steps in order:
 
 * [ bread in toaster]
@@ -82,35 +68,30 @@ Put these steps in order:
 * [Turn on toaster]
 * [Take toast out]
 
-2. Knowledge Database
+## 2. Knowledge Database
 
 It stores task sequences that people know.
-
 Example:
-
 Task: Brushing teeth
-
 1. Apply toothpaste
 2. Brush teeth
 3. Rinse mouth
 4. Challenge Presenter
 
 It shows the CAPTCHA to the user.
-
 Example formats:
-
 * Drag and drop ordering
 * Multiple choice ordering
 * Image sequence arrangement
-4. Verification Engine
+
+## 4. Verification Engine
 
 It checks the users answer against the sequence.
-
 User answer == correct sequence
 ↓
 Human verified
 
-5. Bot Detection Layer
+## 5. Bot Detection Layer
 
 It looks for patterns, like:
 
@@ -118,6 +99,6 @@ It looks for patterns, like:
 * Repeated attempts
 * Weird interactions
 
-CAPTCHA Architecture Diagram
+## CAPTCHA Architecture Diagram
 
 User --> Challenge Interface --> Challenge Generator --> Knowledge Database-->Verification Engine --> Human / Bot Decision
